@@ -1,0 +1,56 @@
+<nav class="navbar shadow navbar-dark bg-dark navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="#dashboard"><span class="fa fa-book"></span> Impact Book</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#logout">
+                    <span class="fa fa-sign-out"></span> Sign out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="fixed-top col-md-2 bg-light p-0 collapse navbar-collapse show" id="sidebar" style="
+            position: fixed;
+            top: 0;
+            height: calc(100vh - 48px);
+            margin-top: 56px;
+            overflow-x: hidden;
+            overflow-y: auto;box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+        ">
+            <div class="d-flex flex-wrap flex-md-nowrap align-items-center">
+                <div class="m-2 mb-0 ">
+                    <span class="fa fa-user-circle-o fa-3x "></span>  
+                </div>
+                <div >
+                <span class="text-capitalize font-weight-bold"> <%= username %></span> 
+                <br/> <span class="badge badge-pill badge-info "> as <%= role %></span>
+                </div>
+            </div>
+            <ul class="nav flex-column font-weight-bold">
+                <li class="nav-item border border-top-0 py-2">
+                    <a class="nav-link text-muted active" href="#dashboard/books">
+                        <span class="fa fa-book"></span> Books</a>
+                </li>
+                <li class="nav-item border border-top-0 py-2">
+                    <a class="nav-link text-muted" href="#dashboard/labels">
+                        <span class="fa fa-tags"></span> Labels</a>
+                </li>
+                <li class="nav-item border border-top-0 py-2 ">
+                    <a class="nav-link text-muted" href="#dashboard/user">
+                        <span class="fa fa-user"></span> User</a>
+                </li>
+            </ul>
+        </nav>
+        <main role="main" class="col-lg-10 offset-lg-2 mt-lg-5 main">
+            <div class="row mt-4 mx-md-3 border-bottom">
+                <h1 class="h2"><span class="fa fa-dashboard"></span> Dashboard</h1>
+            </div>
+        </main>
+    </div>
+</div>

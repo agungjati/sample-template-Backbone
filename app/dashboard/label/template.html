@@ -1,0 +1,52 @@
+<div class="modal fade" id="modalForm" role="dialog" aria-labelledby="modalForm" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalForm">Add Label</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form class="form" enctype="multipart/form-data">
+                    <div class="row mb-3">
+                        <div class="col-md-10">
+                            <input name="name" type="text" class="form-control" />
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" class="btn btn-success btn-block">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Labels</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalForm">
+            <span class="fa fa-plus"></span> Add Label</button>
+    </div>
+</div>
+<div class="mx-md-3 mt-3">
+    <% 
+  let init,name = []
+  result.forEach(function(data) {
+      name.push(data.name && commonFunction.toCapital(data.name))
+  }) 
+  
+  name =  commonFunction.sortByAbjad(name)
+  
+  if(name){
+    name.forEach(function(nama){
+        let initial =  nama && nama.substr(0, 1)
+        initial =  initial && initial.toLocaleUpperCase()
+        if(initial != init) print(`</h5></div><h3>${initial}</h3><div class="col-lg-6 mb-md-2"><h5>`) 
+        init = initial
+        print(`<span class="badge badge-info" label>${nama} <a href="#" class="text-light" value="${nama}" deleteME>&times;</a></span> `)
+        })
+    }
+  %>
+</div>

@@ -1,8 +1,9 @@
 define(function (require, exports, module) {
     'use strict';
-
-    var Backbone = require('backbone')
-    var viewContent = function (path, option) {
+    
+    let Backbone = require('backbone'),
+        Cookies = require('cookie'),
+        viewContent = function (path, option) {
         require([`./` + path + `/view`], function (View) {
             var view = new View()
             view.render()
@@ -21,22 +22,50 @@ define(function (require, exports, module) {
         routes: {
             '': 'home',
             'book/:title': 'descBook',
-            'login': 'showLogin'
+            'signup': 'showSignup',
+            'dashboard': 'showDashboard',
+            'dashboard/books': 'showBooks',
+            'dashboard/books/:value': 'editBooks',
+            'dashboard/labels': 'showLabel',
+            'dashboard/user': 'setuser',
+            'signin': 'showSignin',
+            'logout': 'logout',
         },
-        home: function () {
-            viewContent("footer", "body")
-            if($("footer")){ viewContent("home") }
-            if($("main")){ viewContent("navbar") }
+        home() {
+            viewContent("home", "main") 
         },
-        descBook: function () {
-            // this.showLogin()
-            if($("footer").length == 0 ){ viewContent("footer", "body") }
-            if($("main").length == 0){ viewContent("home") }
-            if($("nav").length == 0){ viewContent("navbar") }
+        descBook () {
             viewContent("descBook", "main")
         },
-        showLogin: function() {
-            viewContent("login", "body")
+        showDashboard () {
+            viewContent("dashboard/home", "body")
+        },
+        showSignup () {
+            viewContent("signup", "main")
+        },
+        showBooks () {
+            this.showDashboard()
+            viewContent("dashboard/books", "main");
+        },
+        editBooks() {
+            this.showDashboard()
+            viewContent("dashboard/books/edit", "main");
+        },
+        showLabel () {
+            this.showDashboard()
+            viewContent("dashboard/label", "main"); 
+        },
+        setuser () {
+            this.showDashboard()
+            viewContent("dashboard/user", "main"); 
+        },
+        showSignin () {
+            viewContent("signin")
+        },
+        logout () {
+            Cookies.remove("Username")
+            Cookies.remove("role")
+            window.location = window.location.origin
         }
     })
 })

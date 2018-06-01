@@ -1,0 +1,82 @@
+<div class="modal fade" id="modalForm" role="dialog" aria-labelledby="modalForm" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalForm">Add Book</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form class="form" enctype="multipart/form-data">
+                    <div class="row mb-3">
+                        <div class="col-md-2">
+                            <label class="col-form-label">Title</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input name="title" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-2">
+                            <label class="col-form-label">Figure</label>
+                        </div>
+                        <div class="col-md-5">
+                            <label class="custom-file">
+                                <input type="file" name="picture" class="custom-file-input">
+                                <span class="custom-file-control"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <label class="col-form-label">Label</label>
+                        </div>
+                        <div class="col-md-9">
+                            <select class="form-control" id="mySelect2" name="labels">
+                                <option value="">Search for label</option>
+                            </select>
+                            <button type="button" class="btn btn-outline-primary btn-sm" addLabel>
+                                <span class="fa fa-plus"></span> Add label
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12 offset-md-2">
+                            <div class="mt-1 p-1" list-label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="col-form-label">Description</label>
+                        </div>
+                        <div class="col-md-9">
+                            <textarea name="description" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 offset-5 mt-3">
+                            <input type="submit" class="btn btn-success float-right">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Books</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalForm">
+            <span class="fa fa-plus"></span> Add Book</button>
+    </div>
+</div>
+<div class="mx-md-3 mt-3" content>
+    <div class="table-responsive">
+        <h3><span class="badge-warning">Loading...</span></h3>
+    </div>
+</div>
+

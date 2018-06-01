@@ -1,14 +1,20 @@
 define(function(require, exports, module) {
     'use strict';
     
-    var template = require('text!./template.html')
+    let template = require('text!./template.html'),
+        Model = require('../home/model')
 
     return Backbone.View.extend({
-        tagName: 'main',
-        attributes: { "role" : "main" },
         template:_.template(template),
         render : function() {
-            this.$el.html(this.template())
+            let self = this, 
+            value = window.location.hash.split("/").pop()
+            this.model = new Model()
+            this.model.save({id: value}, {method: "GET"}).done(function(res){
+                let result = {res}
+                self.$el.html(self.template(result))
+            })
+            
         }
     })
 })

@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Books</h1>
+</div>
+<div class="mx-md-3 mt-3" content>
+        <form class="form" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label class="col-form-label">Title</label>
+                </div>
+                <div class="col-md-9">
+                    <input name="title" value="<%= title %>" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label class="col-form-label">Figure</label>
+                </div>
+                <div class="col-md-5">
+                    <label class="custom-file">
+                        <input type="file" name="picture" class="custom-file-input" value="<%= picture %>">
+                        <span class="custom-file-control"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-2">
+                    <label class="col-form-label">Label</label>
+                </div>
+                <div class="col-md-9">
+                    <select class="form-control" id="mySelect2" name="labels">
+                        <option value="">Search for label</option>
+                    </select>
+                    <button type="button" class="btn btn-outline-primary btn-sm" addLabel>
+                        <span class="fa fa-plus"></span> Add label
+                    </button>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-12 offset-md-2">
+                    <div class="mt-1 p-1" list-label>
+                        <% if(label){
+                            label.forEach( el => {
+                                let htmlLabel = `<span class="badge badge-primary badge-pill" label> ${el}
+                                        <input type="hidden" name="label[]" value="${el}"/>
+                                        <a href="#" class="text-light" deleteME>&times;</a>
+                                    </span>`
+                                print(htmlLabel)
+                            })
+                        }%>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="col-form-label">Description</label>
+                </div>
+                <div class="col-md-9">
+                    <textarea name="description" class="form-control" rows="5"><%= description %></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 offset-5 mt-3">
+                    <input type="submit" class="btn btn-success float-right">
+                </div>
+            </div>
+        </form>
+</div>
